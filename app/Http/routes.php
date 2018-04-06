@@ -15,5 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//protected routes
+Route::get('/content/new', 'ContentController@index');
+Route::get('/content/view', 'ContentController@getFetchContents');
 Route::get('/content/new', 'ContentController@getCreateContent');
 Route::post('/content/add', 'ContentController@postCreateContent');

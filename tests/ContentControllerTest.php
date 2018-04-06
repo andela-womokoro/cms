@@ -24,6 +24,11 @@ class ContentControllerTest extends TestCase
         $this->assertTrue(true);
     }
 
+    public function testGetFetchContents()
+    {
+        $this->assertTrue($this->cms->getCreateContent());
+    }
+
     public function testGetCreateContent()
     {
     	$this->assertTrue($this->cms->getCreateContent());

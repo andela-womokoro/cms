@@ -10,6 +10,16 @@ use App\Http\Controllers\Controller;
 class ContentController extends Controller
 {
     /**
+     * Fetch all available contents and return them to the view
+     *
+     * @return [type] [description]
+     */
+    public function getFetchContents()
+    {
+        return false;
+    }
+
+    /**
      * Returns a view that contains the content creation form
      *
      * @return [type] [description]
