@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/content/new', 'ContentController@getCreateContent');
+Route::post('/content/add', 'ContentController@postCreateContent');
