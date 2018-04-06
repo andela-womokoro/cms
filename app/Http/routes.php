@@ -33,4 +33,4 @@ Route::post('/content/add', 'ContentController@postCreateContent');
 
 // API routes
 Route::get('/api/v1/{user}/contents ', ['middleware' => 'auth.basic', 'uses' => 'ApiController@getFetchAll']);
-Route::get('/api/v1/{user}/contents/{id} ', ['middleware' => 'auth.basic', 'uses' => 'ApiController@postFetchSingle']);
+Route::get('/api/v1/{user}/contents/{id} ', ['middleware' => 'auth.basic', 'uses' => 'ApiController@getFetchSingle']);

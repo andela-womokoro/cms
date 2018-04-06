@@ -10,78 +10,27 @@ use App\Http\Controllers\Controller;
 class ApiController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Fetch all contents for a user
      *
-     * @return \Illuminate\Http\Response
+     * @return json
      */
-    public function index()
+    public function getFetchAll()
     {
-        //
+        // use eloquent to fetch all products as an array. Return the result in json format
+
+        return false;
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Fetch all contents for a user
      *
-     * @return \Illuminate\Http\Response
+     * @return json
      */
-    public function create()
+    public function getFetchSingle($id)
     {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+        // use eloquent to fetch a single products as an array. Return the result in json format
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        return false;
     }
 }
