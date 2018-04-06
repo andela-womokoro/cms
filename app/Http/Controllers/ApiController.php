@@ -16,7 +16,8 @@ class ApiController extends Controller
      */
     public function getFetchAll()
     {
-        // use eloquent to fetch all products as an array. Return the result in json format
+        // use eloquent to fetch all products as an array.
+        // Return the result in json format using laravel's Response->json()
 
         return false;
     }
@@ -29,7 +30,8 @@ class ApiController extends Controller
     public function getFetchSingle($id)
     {
 
-        // use eloquent to fetch a single products as an array. Return the result in json format
+        // use eloquent to fetch a single products as an array.
+        // Return the result in json format using laravel's Response->json()
 
         return false;
     }

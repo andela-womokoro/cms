@@ -2,5 +2,28 @@
 @section('title', '')
 
 @section('content')
-    <h3>All published contents</h3>
+    <h3>Create content</h3>
+    <form method="POST" action="/content/add">
+	    {!! csrf_field() !!}
+	    <div>
+	        Title
+	        <input type="text" name="title" value="{{ old('title') }}">
+	    </div>
+	    <div>
+	    	Industry
+	    	<select name="industry">
+	    		<option></option>
+	    		<option>Science</option>
+	    		<option>Engineering</option>
+	    		<option>Humanities</option>
+	    	</select>
+	    </div>
+	    <div>
+	       Body<br />
+	       <textarea name="body" rows="10" cols="100"></textarea>
+	    </div>
+	    <div>
+	        <button type="submit">Login</button>
+	    </div>
+	</form>
 @endsection

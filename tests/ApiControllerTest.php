@@ -14,13 +14,13 @@ class ApiControllerTest extends TestCase
 		$this->api = new ApiController();
 	}
 
-   public function testGetFetchAll()
-   {
+   	public function testGetFetchAll()
+   	{
    		$this->assertTrue($this->api->getFetchAll());
-   }
+   	}
 
-   public function testGetFetchSingle()
-   {
+   	public function testGetFetchSingle()
+   	{
    		$this->assertTrue($this->api->getFetchSingle());
-   }
+   	}
 }

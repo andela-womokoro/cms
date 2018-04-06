@@ -32,7 +32,7 @@ class ContentController extends Controller
      */
     public function getCreateContent()
     {
-        return view('contents_list');
+        return view('content_new');
     }
 
     /**
