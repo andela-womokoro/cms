@@ -24,7 +24,7 @@ Route::get('auth/logout', 'Auth\AuthController@getLogout');
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
 
-// Protected routes
+// Protected routes. Protected with the auth middleware in the controller's constructor
 Route::get('/home', 'ContentController@getHome');
 Route::get('/content/new', 'ContentController@index');
 Route::get('/content/view', 'ContentController@getFetchContents');
