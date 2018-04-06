@@ -10,10 +10,16 @@ use App\Http\Controllers\Controller;
 
 class ContentController extends Controller
 {
-    public function __construct()
+    public $request;
+    public $content;
+
+    public function __construct(Request $request, Content $content)
     {
         // allow only authenticated usesr access to routes here
         $this->middleware('auth');
+
+        $this->request = $request;
+        $this->content = $content;
     }
 
     /**
@@ -41,21 +47,20 @@ class ContentController extends Controller
      *
      * @return [type] [description]
      */
-    public function postCreateContent(Request $request)
+    public function postCreateContent()
     {
-        $title = $request->input('title');
-        $industry = $request->input('industry');
-        $body = $request->input('body');
+        $title = $this->request->input('title');
+        $industry = $this->request->input('industry');
+        $body = $this->request->input('body');
         $alert = "";
 
         if (empty($title) || empty($industry) || empty($body)) {
             $alert = 'Missing field. Please fill in all fields.';
         } else {
-            $content = new Content();
-            $content->title = $title;
-            $content->industry = $industry;
-            $content->body = $body;
-            $content->save();
+            $this->content->title = $title;
+            $this->content->industry = $industry;
+            $this->content->body = $body;
+            $this->content->save();
             $alert = 'Content successfully published.';
         }
 
