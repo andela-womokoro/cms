@@ -10,6 +10,16 @@ use App\Http\Controllers\Controller;
 class ContentController extends Controller
 {
     /**
+     * Display application's dashboard
+     *
+     * @return [type] [description]
+     */
+    public function getHome()
+    {
+        return view('dashboard');
+    }
+
+    /**
      * Fetch all available contents and return them to the view
      *
      * @return [type] [description]

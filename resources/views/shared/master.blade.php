@@ -11,10 +11,15 @@
             <div class="content">
                 <div class="title">Content Management System</div>
                 <p>
-                    <a href="/">Home</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-                    <a href="">Login</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-                    <a href="/content/view">Contents</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-                    <a href="/content/new">Create New</a>
+                    @if(Auth::user())
+                        <a href="/content/view">Contents</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                        <a href="/content/new">Create New</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                        <a href="auth/logout">Logout</a>
+                    @else
+                        <a href="/">Home</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                        <a href="auth/register">Register</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                        <a href="auth/login">Login</a>
+                    @endif
                 </p>
                 @yield('content')
 
