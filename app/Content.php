@@ -11,5 +11,15 @@ class Content extends Model
      *
      * @var array
      */
-    protected $fillable = ['title', 'industry', 'body'];
+    protected $fillable = ['user_id', 'title', 'industry', 'body'];
+
+    /**
+     * Enforce a one to one relationship between Content and a user
+     *
+     * @return [type] [description]
+     */
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 }

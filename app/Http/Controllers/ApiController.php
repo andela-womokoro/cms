@@ -2,25 +2,44 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
+use Auth;
+use App\User;
+use App\Content;
 use App\Http\Requests;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class ApiController extends Controller
 {
+    public $content;
+
+    public function __construct(Content $content)
+    {
+        $this->content = $content;
+    }
+
     /**
      * Fetch all contents for a user
      *
      * @return json
      */
-    public function getFetchAll()
+    public function getFetchAll($user)
     {
-        // use eloquent to fetch all products as an array.
-        // Return the result in json format using laravel's Response->json()
+        $contents = User::find(intval($user))->contents;
 
-        //return response()->json();
-        return false;
+        if ($contents) {
+            return response()->json([
+                'error' => '',
+                'contents' => $contents,
+                'status_code' => 200
+            ]);
+        }
+
+        return response()->json([
+            'error' => '',
+            'contents' => [],
+            'status_code' => 404
+        ]);
     }
 
     /**
@@ -30,11 +49,12 @@ class ApiController extends Controller
      */
     public function getFetchSingle($id)
     {
+        $content = $this->content::find($id);
 
-        // use eloquent to fetch a single products as an array.
-        // Return the result in json format using laravel's Response->json()
-
-        //return response()->json();
-        return false;
+        return response()->json([
+            'error' => '',
+            'contents' => $content,
+            'status_code' => 200
+        ]);
     }
 }
