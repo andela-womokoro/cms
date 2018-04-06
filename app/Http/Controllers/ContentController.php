@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Content;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -32,7 +33,7 @@ class ContentController extends Controller
      */
     public function getCreateContent()
     {
-        return view('content_new');
+         return view('content_new');
     }
 
     /**
@@ -40,8 +41,24 @@ class ContentController extends Controller
      *
      * @return [type] [description]
      */
-    public function postCreateContent()
+    public function postCreateContent(Request $request)
     {
-        return false;
+        $title = $request->input('title');
+        $industry = $request->input('industry');
+        $body = $request->input('body');
+        $alert = "";
+
+        if (empty($title) || empty($industry) || empty($body)) {
+            $alert = 'Missing field. Please fill in all fields.';
+        } else {
+            $content = new Content();
+            $content->title = $title;
+            $content->industry = $industry;
+            $content->body = $body;
+            $content->save();
+            $alert = 'Content successfully published.';
+        }
+
+        return view('content_new', ['alert' => $alert]);
     }
 }
