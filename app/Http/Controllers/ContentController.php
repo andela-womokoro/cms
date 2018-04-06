@@ -36,7 +36,7 @@ class ContentController extends Controller
     }
 
     /**
-     * Creates the content and stires it in the database
+     * Creates the content and stores it in the database
      *
      * @return [type] [description]
      */

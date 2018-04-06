@@ -23,7 +23,7 @@
 	       <textarea name="body" rows="10" cols="100"></textarea>
 	    </div>
 	    <div>
-	        <button type="submit">Login</button>
+	        <button type="submit">Create</button>
 	    </div>
 	</form>
 @endsection
