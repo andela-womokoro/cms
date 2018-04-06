@@ -9,14 +9,10 @@ use App\Http\Controllers\Controller;
 
 class ContentController extends Controller
 {
-    /**
-     * Display application's dashboard
-     *
-     * @return [type] [description]
-     */
-    public function getHome()
+    public function __construct()
     {
-        return view('dashboard');
+        // allow only authenticated usesr access to routes here
+        $this->middleware('auth');
     }
 
     /**
@@ -26,7 +22,7 @@ class ContentController extends Controller
      */
     public function getFetchContents()
     {
-        return false;
+        return view('contents_list');
     }
 
     /**

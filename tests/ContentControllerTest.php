@@ -14,16 +14,6 @@ class ContentControllerTest extends TestCase
 		$this->cms = new ContentController();
 	}
 
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
-    public function testExample()
-    {
-        $this->assertTrue(true);
-    }
-
     public function testGetFetchContents()
     {
         $this->assertTrue($this->cms->getCreateContent());
