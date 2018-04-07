@@ -7,7 +7,7 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class ContentControllerTest extends TestCase
 {
-	public $cms;
+    public $cms;
 
     public function setUp()
     {
