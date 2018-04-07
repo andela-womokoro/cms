@@ -26,7 +26,7 @@ class ApiControllerTest extends TestCase
         $result = $this->api->getFetchAll(0);
 
         $this->assertJsonStringEqualsJsonString($result, $this->expected);
-   	}
+    }
 
     public function testGetFetchSingle()
     {
