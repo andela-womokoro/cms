@@ -7,31 +7,31 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class ApiControllerTest extends TestCase
 {
-   	public $api;
+    public $api;
     public $expected;
 
-	public function setUp()
-	{
-		$this->api = new ApiController();
+    public function setUp()
+    {
+        $this->api = new ApiController();
 
         $this->expected = json_encode([
             'error' => 'Not found',
             'contents' => [],
             'status_code' => 404
         ]);
-	}
+    }
 
-   	public function testGetFetchAll()
-   	{
+    public function testGetFetchAll()
+    {
         $result = $this->api->getFetchAll(0);
 
         $this->assertJsonStringEqualsJsonString($result, $this->expected);
    	}
 
-   	public function testGetFetchSingle()
-   	{
+    public function testGetFetchSingle()
+    {
         $result = $this->api->getFetchSingle(0);
 
         $this->assertJsonStringEqualsJsonString($result, $this->expected);
-   	}
+    }
 }

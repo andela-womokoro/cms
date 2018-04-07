@@ -9,11 +9,11 @@ class ContentControllerTest extends TestCase
 {
 	public $cms;
 
-	public function setUp()
-	{
+    public function setUp()
+    {
         //parent::setUp;
-		$this->cms = new ContentController();
-	}
+        $this->cms = new ContentController();
+    }
 
     public function testGetFetchContents()
     {
