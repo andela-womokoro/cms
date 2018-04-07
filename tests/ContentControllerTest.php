@@ -11,21 +11,32 @@ class ContentControllerTest extends TestCase
 
 	public function setUp()
 	{
+        //parent::setUp;
 		$this->cms = new ContentController();
 	}
 
     public function testGetFetchContents()
     {
-        $this->assertTrue($this->cms->getCreateContent());
+        $this->visit('/')
+            ->click('Contents')
+            ->seePageIs('/content/view');
     }
 
     public function testGetCreateContent()
     {
-    	$this->assertTrue($this->cms->getCreateContent());
+        $this->visit('/')
+            ->click('Create New')
+            ->seePageIs('/content/new');
     }
 
     public function testPostCreateContent()
     {
-    	$this->assertTrue($this->cms->postCreateContent());
+        $this->visit('/')
+            ->click('Create New')
+            ->type('Test title', 'title')
+            ->select('Engineering', 'industry')
+            ->type('foo bar', 'body')
+            ->press('Publish')
+            ->seePageIs('/content/add');
     }
 }

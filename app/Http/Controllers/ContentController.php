@@ -15,7 +15,7 @@ class ContentController extends Controller
 
     public function __construct(Request $request, Content $content)
     {
-        // allow only authenticated usesr access to routes here
+        // allow only authenticated users access to routes here
         $this->middleware('auth');
 
         $this->request = $request;
@@ -25,19 +25,19 @@ class ContentController extends Controller
     /**
      * Fetch all available contents and return them to the view
      *
-     * @return [type] [description]
+     * @return Response
      */
     public function getFetchContents()
     {
-        $userContent = $this->content::all();
+        $contents = $this->content::all();
 
-        return view('contents_list', ['userContent' => $userContent]);
+        return view('contents_list', ['contents' => $contents]);
     }
 
     /**
      * Returns a view that contains the content creation form
      *
-     * @return [type] [description]
+     * @return Response
      */
     public function getCreateContent()
     {
@@ -47,7 +47,7 @@ class ContentController extends Controller
     /**
      * Creates the content and stores it in the database
      *
-     * @return [type] [description]
+     * @return Response
      */
     public function postCreateContent()
     {

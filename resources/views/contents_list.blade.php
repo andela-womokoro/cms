@@ -9,7 +9,7 @@
     		<th>Industry</th>
     		<th>Body</th>
     	</tr>
-    	@foreach($userContent as $content)
+    	@foreach($contents as $content)
     	<tr align="left">
     		<td>{{ $content->title }}</td>
     		<td>{{ $content->industry }}</td>

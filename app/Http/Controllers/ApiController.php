@@ -36,14 +36,14 @@ class ApiController extends Controller
         }
 
         return response()->json([
-            'error' => '',
+            'error' => 'Not found',
             'contents' => [],
             'status_code' => 404
         ]);
     }
 
     /**
-     * Fetch all contents for a user
+     * Fetch single contents for a user
      *
      * @return json
      */
@@ -51,10 +51,18 @@ class ApiController extends Controller
     {
         $content = $this->content::find($id);
 
+        if ($content) {
+            return response()->json([
+                'error' => '',
+                'contents' => $content,
+                'status_code' => 200
+            ]);
+        }
+
         return response()->json([
-            'error' => '',
-            'contents' => $content,
-            'status_code' => 200
+            'error' => 'Not found',
+            'contents' => [],
+            'status_code' => 404
         ]);
     }
 }
