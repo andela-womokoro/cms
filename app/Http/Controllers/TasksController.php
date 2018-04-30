@@ -16,7 +16,6 @@ class TasksController extends Controller
      */
     public function index()
     {
-        // display all assigned tasks
         return view('tasks_list');
     }
 

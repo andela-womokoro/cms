@@ -24,7 +24,11 @@
 	    </div>
 	    <div>
 	        <button>Preview</button>
-	        <button type="submit">Publish</button>
+	        @if(Auth::user()->user_type == 0)
+	        	<button type="submit">Publish</button>
+	        @else
+	        	<button type="submit">Send for review</button>
+	        @endif
 	    </div>
 	</form>
 @endsection
