@@ -26,10 +26,11 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
 
 // Protected routes. Protected with the auth middleware in the controller's constructor
 Route::get('/home', 'ContentController@getHome');
-Route::get('/content/new', 'ContentController@index');
-Route::get('/content/view', 'ContentController@getFetchContents');
-Route::get('/content/new', 'ContentController@getCreateContent');
-Route::post('/content/add', 'ContentController@postCreateContent');
+//Route::get('/content/new', 'ContentController@index');
+Route::get('/content/view', 'ContentController@index');
+Route::get('/content/new', 'ContentController@create');
+Route::post('/content/add', 'ContentController@store');
+Route::get('/content/tasks', 'TasksController@index');
 
 // API routes
 Route::get('/api/v1/{user}/contents ', ['middleware' => 'auth.basic', 'uses' => 'ApiController@getFetchAll']);

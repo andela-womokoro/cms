@@ -11,13 +11,6 @@ use App\Http\Controllers\Controller;
 
 class ApiController extends Controller
 {
-    public $content;
-
-    public function __construct(Content $content)
-    {
-        $this->content = $content;
-    }
-
     /**
      * Fetch all contents for a user
      *
@@ -49,7 +42,7 @@ class ApiController extends Controller
      */
     public function getFetchSingle($id)
     {
-        $content = $this->content::find($id);
+        $content = Content::find($id);
 
         if ($content) {
             return response()->json([

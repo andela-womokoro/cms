@@ -13,6 +13,7 @@
                 <p>
                     <a href="/">Home</a>&nbsp;&nbsp;|&nbsp;&nbsp;
                     @if(Auth::user())
+                        <a href="/content/tasks">Tasks</a>&nbsp;&nbsp;|&nbsp;&nbsp;
                         <a href="/content/view">Contents</a>&nbsp;&nbsp;|&nbsp;&nbsp;
                         <a href="/content/new">Create New</a>&nbsp;&nbsp;|&nbsp;&nbsp;
                         <a href="auth/logout">Logout</a>

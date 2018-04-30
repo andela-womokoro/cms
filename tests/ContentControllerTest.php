@@ -7,13 +7,7 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class ContentControllerTest extends TestCase
 {
-    public $cms;
-
-    public function setUp()
-    {
-        //parent::setUp;
-        $this->cms = new ContentController();
-    }
+    use WithoutMiddleware;
 
     public function testGetFetchContents()
     {

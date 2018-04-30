@@ -7,12 +7,14 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class ApiControllerTest extends TestCase
 {
-    public $api;
+    use WithoutMiddleware;
+
+    //public $api;
     public $expected;
 
     public function setUp()
     {
-        $this->api = new ApiController();
+        //$this->api = new ApiController();
 
         $this->expected = json_encode([
             'error' => 'Not found',
@@ -23,14 +25,16 @@ class ApiControllerTest extends TestCase
 
     public function testGetFetchAll()
     {
-        $result = $this->api->getFetchAll(0);
+        //$result = $this->api->getFetchAll(0);
+        $result = $this->call('GET', '/api/v1/1/contents');
 
         $this->assertJsonStringEqualsJsonString($result, $this->expected);
     }
 
     public function testGetFetchSingle()
     {
-        $result = $this->api->getFetchSingle(0);
+        //$result = $this->api->getFetchSingle(0);
+        $result = $this->call('GET', '/api/v1/1/contents/1');
 
         $this->assertJsonStringEqualsJsonString($result, $this->expected);
     }

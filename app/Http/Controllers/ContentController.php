@@ -27,9 +27,9 @@ class ContentController extends Controller
      *
      * @return Response
      */
-    public function getFetchContents()
+    public function index()
     {
-        $contents = $this->content::all();
+        $contents = Content::all();
 
         return view('contents_list', ['contents' => $contents]);
     }
@@ -39,7 +39,7 @@ class ContentController extends Controller
      *
      * @return Response
      */
-    public function getCreateContent()
+    public function create()
     {
         return view('content_new');
     }
@@ -49,7 +49,7 @@ class ContentController extends Controller
      *
      * @return Response
      */
-    public function postCreateContent()
+    public function store()
     {
         $userId = Auth::user()->id;
         $title = $this->request->input('title');
