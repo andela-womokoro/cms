@@ -9,21 +9,21 @@ class ContentControllerTest extends TestCase
 {
     use WithoutMiddleware;
 
-    public function testGetFetchContents()
+    public function testIndex()
     {
         $this->visit('/')
             ->click('Contents')
             ->seePageIs('/content/view');
     }
 
-    public function testGetCreateContent()
+    public function testCreate()
     {
         $this->visit('/')
             ->click('Create New')
             ->seePageIs('/content/new');
     }
 
-    public function testPostCreateContent()
+    public function testStore()
     {
         $this->visit('/')
             ->click('Create New')
