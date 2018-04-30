@@ -50,9 +50,9 @@ class TaskControllerTest extends TestCase
      */
     public function testShow()
     {
-    	$this->('/')
+    	$this->visit('/')
     		->click('Tasks')
-    		->seePageIs('/content/tasks');
+    		->seePageIs('/content/tasks')
     		->click('title')
     		->see('Task name');
     }
