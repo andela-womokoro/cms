@@ -52,13 +52,13 @@ class TasksController extends Controller
         $contentId = $request->input('content_id');
         $alert = "";
 
-        if (empty($userid) || empty($contentId)) {
+        if (empty($userId) || empty($contentId)) {
             $alert = 'User or content(s) not selected. Please try again.';
         } else {
             $this->task->user_id = $userId;
             $this->task->content_id = $contentId;
             $this->task->save();
-            $alert = 'successfully';
+            $alert = 'success';
         }
 
         return view('contents_list', ['contents' => Content::all(), 'alert' => $alert]);
