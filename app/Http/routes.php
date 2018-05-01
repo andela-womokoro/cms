@@ -32,6 +32,7 @@ Route::post('/content/add', 'ContentController@store');
 Route::get('/tasks/view', 'TasksController@index');
 Route::get('/tasks/new', 'TasksController@create');
 Route::post('/tasks/add', 'TasksController@store');
+Route::get('/tasks/view/{id}', 'TasksController@show');
 
 // API routes
 Route::get('/api/v1/{user}/contents ', ['middleware' => 'auth.basic', 'uses' => 'ApiController@getFetchAll']);

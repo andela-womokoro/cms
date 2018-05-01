@@ -72,6 +72,6 @@ class TasksController extends Controller
      */
     public function show($id)
     {
-        // display a single task
+        return view('task_show', ['task', Task::find($id)]);
     }
 }
