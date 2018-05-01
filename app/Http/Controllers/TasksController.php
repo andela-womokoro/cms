@@ -2,13 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
+use App\Task;
+use App\Content;
 use App\Http\Requests;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class TasksController extends Controller
 {
+    public $task;
+
+    public function __construct(Task $task)
+    {
+        // allow only authenticated users access to routes here
+        $this->middleware('auth');
+
+        $this->task = $task;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -20,13 +31,13 @@ class TasksController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the view for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        // display contents page
+        return view('contents_list', ['contents' => Content::all()]);
     }
 
     /**
@@ -37,7 +48,20 @@ class TasksController extends Controller
      */
     public function store(Request $request)
     {
-        // store a task in the database
+        $userId = $request->input('user_id');
+        $contentId = $request->input('content_id');
+        $alert = "";
+
+        if (empty($userid) || empty($contentId)) {
+            $alert = 'User or content(s) not selected. Please try again.';
+        } else {
+            $this->task->user_id = $userId;
+            $this->task->content_id = $contentId;
+            $this->task->save();
+            $alert = 'successfully';
+        }
+
+        return view('contents_list', ['contents' => Content::all(), 'alert' => $alert]);
     }
 
     /**

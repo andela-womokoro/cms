@@ -38,7 +38,7 @@ class TaskControllerTest extends TestCase
     {
     	$this->visit('/')
     		->click('Contents')
-    		->check('task_id')
+    		->check('content_id')
     		->select('wilson', 'user_id')
     		->press('Assign')
     		->see('success');

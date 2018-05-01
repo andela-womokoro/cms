@@ -29,7 +29,9 @@ Route::get('/home', 'ContentController@getHome');
 Route::get('/content/view', 'ContentController@index');
 Route::get('/content/new', 'ContentController@create');
 Route::post('/content/add', 'ContentController@store');
-Route::get('/content/tasks', 'TasksController@index');
+Route::get('/tasks/view', 'TasksController@index');
+Route::get('/tasks/new', 'TasksController@create');
+Route::post('/tasks/add', 'TasksController@store');
 
 // API routes
 Route::get('/api/v1/{user}/contents ', ['middleware' => 'auth.basic', 'uses' => 'ApiController@getFetchAll']);

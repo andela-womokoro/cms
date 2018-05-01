@@ -26,7 +26,7 @@ class Task extends Model
     /**
      * Enforce a relationship with the Content model
      */
-    public function content
+    public function content()
     {
     	return $this->belongsTo('App\Content');
     }
